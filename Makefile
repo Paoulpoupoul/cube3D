@@ -8,7 +8,7 @@ LIBFTDIR = ./libft
 
 LIB = ./libft/libft.a
 
-SRC = $(addprefix src/, cub3D.c)
+SRC = $(addprefix src/, cub3D.c parsing.c err_msg.c)
 
 OBJ = $(SRC:.c=.o)
 

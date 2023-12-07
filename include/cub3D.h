@@ -6,7 +6,50 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:40 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/11/09 15:57:41 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/07 15:46:28 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CUB3D_H
+# define CUB3D_H
+
+# include "../libft/libft.h"
+# include <stdio.h>
+# include	<string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <errno.h>
+
+typedef struct s_rgb
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_rgb;
+
+
+typedef struct s_texture
+{
+	void	*so;
+	void	*no;
+	void	*ea;
+	void	*we;
+	t_rgb	fl;
+	t_rgb	cl;
+}	t_texture;
+
+typedef struct s_cub3d
+{
+	int		fd;
+	t_texture	txtr;
+}	t_cub;
+
+// parsing.c
+int	parsing(t_cub *cub, char *file);
+
+// err_msg.c
+int	err_msg(char *msg);
+int	errno_msg(char *msg, int err);
+
+#endif
