@@ -6,11 +6,13 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:37 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/07 14:24:30 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/11 20:45:10 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+// valgrind --track-fds=yes --leak-check=full --show-leak-kinds=all ./cub3D map.cub
 
 int	check_file_name(char *file)
 {
@@ -48,6 +50,7 @@ int	main(int ac, char **av, char **env)
 		return (err_msg("too many arguments\n"));
 	if (check_file_name(av[1]))
 		return (1);
+	printf("map file found !\n");
 	if (parsing(&cub, av[1]))
 		return (1);
 	return (0);

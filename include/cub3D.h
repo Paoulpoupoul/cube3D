@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:40 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/07 15:46:28 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/11 20:28:30 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ typedef struct s_cub3d
 
 // parsing.c
 int	parsing(t_cub *cub, char *file);
+
+// parsing_2.c
+int	check_file(char *file);
+int	add_texture_to_mlx(t_cub *cub, char *file, void *img);
+int	add_color_to(char *line, int *i, int *color);
+int	check_line(char *line, int i);
 
 // err_msg.c
 int	err_msg(char *msg);
