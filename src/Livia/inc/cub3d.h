@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/20 17:53:06 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:05:17 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@
 # include <limits.h>
 
 # include "../libft/libft.h"
-# include "../mlx/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include "../mlx/mlx.h"
 
+# define SPAWN "NSEW"
 # define COLLISIONS "0NSEW"
 
 # define WIN_W 1280
