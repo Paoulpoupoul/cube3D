@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:40 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/11 20:28:30 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:40:53 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,18 @@
 # include <fcntl.h>
 # include <errno.h>
 
+typedef struct s_pos
+{
+	float	x;
+	float	y;
+}	t_pos;
+
 typedef struct s_rgb
 {
 	int	r;
 	int	g;
 	int	b;
 }	t_rgb;
-
 
 typedef struct s_texture
 {
@@ -41,7 +46,11 @@ typedef struct s_texture
 
 typedef struct s_cub3d
 {
-	int		fd;
+	int			fd;
+	int			**map;
+	char		**c_map;
+	t_pos		map_s;
+	t_pos		pl_pos;
 	t_texture	txtr;
 }	t_cub;
 
@@ -53,6 +62,17 @@ int	check_file(char *file);
 int	add_texture_to_mlx(t_cub *cub, char *file, void *img);
 int	add_color_to(char *line, int *i, int *color);
 int	check_line(char *line, int i);
+int	check_parsing(t_cub *cub, int i);
+
+// parsing_map.c
+int	parsing_map(t_cub *cub, char *line);
+
+// parsing_map_2.c
+int	line_empty(char *line);
+int	rest_empty(char **map, int j);
+int	add_player_cord(t_cub *cub, int x, int y, char c);
+int	char_to_map(char c);
+int	check_map(t_cub *cub);
 
 // err_msg.c
 int	err_msg(char *msg);

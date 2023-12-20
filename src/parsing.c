@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:21:19 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/11 20:40:11 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:22:12 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,14 @@ int	read_line(t_cub *cub, char *line)
 		return (add_rgb(line + 1, &cub->txtr.cl));
 	if (!ft_strncmp("F ", line, 2) || !ft_strncmp("F\t", line, 2))
 		return (add_rgb(line + 1, &cub->txtr.fl));
-	return (1);
+	return (2);
 }
 
 int	read_file(t_cub *cub)
 {
 	char	*line;
 	int		i;
+	int		j;
 
 	line = get_next_line(cub->fd);
 	if (!line)
@@ -100,8 +101,11 @@ int	read_file(t_cub *cub)
 			i++;
 		if (line[i] && line[i] != '\n')
 		{
-			if (read_line(cub, line + i))
+			j = read_line(cub, line + i);
+			if (j == 1)
 				return (ft_free(line) + 1);
+			else if (j > 1)
+				return (parsing_map(cub, line));
 		}
 		free(line);
 		line = get_next_line(cub->fd);
@@ -113,6 +117,7 @@ int	parsing(t_cub *cub, char *file)
 {
 	ft_memset(&cub->txtr.cl, -1, sizeof(cub->txtr.cl));
 	ft_memset(&cub->txtr.fl, -1, sizeof(cub->txtr.cl));
+	ft_memset(&cub->pl_pos, -1, sizeof(cub->pl_pos));
 	cub->fd = open(file, O_RDONLY);
 	if (cub->fd < 0)
 		return (errno_msg("open", errno));
@@ -124,5 +129,7 @@ int	parsing(t_cub *cub, char *file)
 	}
 	get_next_line(-1);
 	close(cub->fd);
+	if (check_parsing(cub, 0))
+		return (1);
 	return (0);
 }

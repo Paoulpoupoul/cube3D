@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:53:13 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/07 15:08:04 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/20 16:00:33 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 long long int	ft_atolli(const char *nptr);
 long int		ft_atoli(const char *nptr);
 int				ft_atoi(const char *nptr);
+int				ft_ischarset(char c, char *charset);
 char			*ft_itoa(int n);
 char			*ft_strdup(const char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,13 +6,22 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:37 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/11 20:45:10 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/20 14:33:42 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
 // valgrind --track-fds=yes --leak-check=full --show-leak-kinds=all ./cub3D map.cub
+
+int	quit(t_cub *cub)
+{
+	if (cub->c_map)
+		free_tabc(cub->c_map);
+	if (cub->map)
+		free_tab(cub->map, cub->map_s.y);
+	return (0);
+}
 
 int	check_file_name(char *file)
 {
@@ -40,7 +49,7 @@ int	check_file_name(char *file)
 
 int	main(int ac, char **av, char **env)
 {
-	t_cub cub;
+	t_cub	cub;
 
 	ft_memset(&cub, 0, sizeof(cub));
 	(void)env;
@@ -52,6 +61,6 @@ int	main(int ac, char **av, char **env)
 		return (1);
 	printf("map file found !\n");
 	if (parsing(&cub, av[1]))
-		return (1);
-	return (0);
+		return (quit(&cub) + 1);
+	return (quit(&cub));
 }

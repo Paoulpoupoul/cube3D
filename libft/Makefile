@@ -60,7 +60,8 @@ SRC = ft_isalpha.c \
 			ft_free.c \
 			ft_tab_size.c \
 			get_next_line.c \
-			get_next_line_utils.c 
+			get_next_line_utils.c \
+			ft_ischarset.c
 
 # specifie aue OBJ represente les .c des SRC en .o
 OBJ = $(SRC:.c=.o)
