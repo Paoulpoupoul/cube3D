@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 13:38:41 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 11:40:44 by lkoletzk         ###   ########.fr       */
+/*   Created: 2023/12/20 14:49:42 by lkoletzk          #+#    #+#             */
+/*   Updated: 2023/12/21 11:46:26 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/cub3d.h"
 
-void	free_tab(int **tab, int len)
+void	free_conf(t_map conf)
 {
-	int	i;
-
-	i = 0;
-	if (!tab)
-		return ;
-	while (i < len)
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-void	free_tabc(char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (!tab)
-		return ;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
+	// if (conf.no.path)
+	// 	free(conf.no.path);
+	// if (conf.so.path)
+	// 	free(conf.so.path);
+	// if (conf.ea.path)
+	// 	free(conf.ea.path);
+	// if (conf.we.path)
+	// 	free(conf.we.path);
+	// if (conf.f.raw)
+	// 	free(conf.f.raw);
+	// if (conf.c.raw)
+	// 	free(conf.c.raw);
+	free_tabc(conf.map);
 }

@@ -1,63 +1,80 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
+#    Updated: 2023/12/21 11:33:36 by lkoletzk         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = cub3D
+
+SRC = $(addprefix src/, cub3D.c parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_msg.c)\
+	src/main.c \
+	src/start.c \
+	src/init_struc.c \
+	src/init.c \
+	src/texturescolors.c \
+	src/hooks.c \
+	src/draw.c \
+	src/draw_utils.c \
+	src/event.c \
+	src/exit.c \
+	src/free.c \
+	src/keys.c \
+	src/raycasting.c \
+	src/ray_init.c \
+	src/ray_update.c \
+	src/ray_utils.c
+
+OBJ			= $(SRC:.c=.o)
+
+LFT_PATH	= ./libft/
+LIBFT		= libft.a
+
+MLX_PATH	= ./mlx/
+MLX			= libmlx.a
 
 CC = cc
 
-CFLAG = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+LIBFT_CF 	= -L$(LFT_PATH)
+MLX_CF 		= -L$(MLX_PATH)
+CLIB_CF		= -lft -lm -lbsd -lmlx -lXext -lX11
 
-LIBFTDIR = ./libft
+all : $(NAME)
 
-LIB = ./libft/libft.a
+$(NAME): $(OBJ) $(LFT_PATH)$(LIBFT) $(MLX_PATH)$(MLX)
+	@ echo "\033[97;0m🚧 cub3D in progress 🚧\033[0m\n"
+	@ $(CC) $(CFLAGS) $(OBJ) $(LIBFT_CF) $(MLX_CF) $(CLIB_CF) -o $(NAME)
+	@ echo "\033[32;1mCUB3D READY ✅\033[0m\n"
 
-SRC = $(addprefix src/, cub3D.c parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_msg.c)
+$(LFT_PATH)$(LIBFT):
+	@ echo "\n\033[97;0m🚧 creating libft 🚧\033[0m\n"
+	@ make --no-print-directory -C $(LFT_PATH)
+	@ echo "\033[32;1mLIBFT READY ✅\033[0m\n"
 
-OBJ = $(SRC:.c=.o)
+$(MLX_PATH)$(MLX):
+	@ echo "\n\033[97;0m🚧 creating MLX 🚧\033[0m\n"
+	@ make --no-print-directory -C $(MLX_PATH)
+	@ echo "\033[32;1mMLX READY ✅\033[0m\n"
 
-# Reset
-Color_Off	=	\033[0m
+%.o: %.c
+	@ mkdir -p $(dir $@)
+	@ $(CC) $(CFLAGS) -c $< -o $@
 
-# Regular Colors
-Black		=	\033[0;30m
-Red			=	\033[0;31m
-Green		=	\033[0;92m
-Yellow	=	\033[0;33m
-Blue		=	\033[0;34m
-Purple	=	\033[0;35m
-Cyan		=	\033[0;36m
-White		=	\033[0;37m
+clean:
+	$(MAKE) clean -C $(LFT_PATH)
+	rm -f $(OBJ)
+	@ echo "\033[32;1m★ objects cleaned ★\033[0m\n"
 
-all : $(LIB) $(NAME)
+fclean: clean
+	$(MAKE) fclean -C $(LFT_PATH)
+	rm -f $(NAME) $(MINILIBX)
 
-$(LIB) :
-	@make -C $(LIBFTDIR)
+re: fclean all
 
-$(NAME) : $(OBJ)
-	@$(CC) $(CFLAG) -o $(NAME) $(OBJ) $(LIB)
-	@echo -e '\n$(Blue)compiling $(Yellow)[$(Green)cub3D$(Yellow)] $(Green)done !$(Color_Off)'
-
-%.o : %.c
-	@echo -en '\n$(Blue)compiling $(Cyan)$@$(Color_Off)'
-	@$(CC) -c $(CFLAG) $< -o $@
-
-cub : $(NAME)
-	@rm -f $(OBJ)
-	@echo -e '$(Green)src clean !$(Color_Off)'
-
-clean :
-	@make clean -C $(LIBFTDIR)
-	@rm -f $(OBJ)
-	@echo -e '$(Green)src clean !$(Color_Off)'
-
-fclean :
-	@make fclean -C $(LIBFTDIR)
-	@rm -f $(OBJ) $(NAME)
-	@echo -e '$(Green)src clean !$(Color_Off)'
-	@echo -e '$(Green)cub3D remove !$(Color_Off)'
-
-re : fclean all
-
-norm :
-	@echo -e '		$(Purple)Norminette cub3D$(Color_Off)\n'
-	@norminette $(SRC) include
-	@echo -en '\n'
-
-.PHONY : libft norm clean fclean
+.PHONY: all clean fclean re
