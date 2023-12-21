@@ -6,45 +6,38 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:44:33 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 10:48:54 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 14:55:58 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
-
-int	check_map(t_cub *cub)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	while (cub->map[j])
-	{
-		i = -1;
-		while (cub->map[j][++i])
-		{
-			if (cub->map[j][i] == '0')
-			{
-				if (!i || !j || i == cub->map_s.x - 1 || j == cub->map_s.y - 1)
-					return (err_msg("map not close\n"));
-				if (cub->map[j][i + 1] == '2' || cub->map[j][i - 1] == '2'
-					|| cub->map[j + 1][i] == '2' || cub->map[j - 1][i] == '2')
-					return (err_msg("map not close\n"));
-			}
-		}
-		j++;
-	}
-	return (0);
-}
+#include "../include/cub3d.h"
 
 int	add_player_cord(t_cub *cub, int x, int y, char c)
 {
-	if (cub->pl_pos.x > -1)
+	if (cub->player.pos.x > -1)
 		return (err_msg("too many start position\n"));
-	cub->pl_pos.x = x;
-	cub->pl_pos.y = y;
-	// gerer l'angle de vue du joueur
-	(void)c;
+	cub->player.pos.x = (float)x + 0.49f;
+	cub->player.pos.y = (float)y + 0.49f;
+	if (c == 'N')
+	{
+		cub->player.dir.x = 0.0f;
+		cub->player.dir.y = -1.0f;;
+	}
+	else if (c == 'S')
+	{
+		cub->player.dir.x = 0.0f;
+		cub->player.dir.y = -1.0f;;
+	}
+	else if (c == 'W')
+	{
+		cub->player.dir.x = 0.0f;
+		cub->player.dir.y = -1.0f;
+	}
+	else
+	{
+		cub->player.dir.x = 0.0f;
+		cub->player.dir.y = -1.0f;;
+	}
 	return (0);
 }
 

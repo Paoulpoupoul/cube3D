@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:37 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 11:23:08 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:36:27 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 // valgrind --track-fds=yes --leak-check=full --show-leak-kinds=all ./cub3D map.cub
 
-int	quit(t_cub *cub)
-{
-	if (cub->tmp_map)
-		free_tabc(cub->tmp_map);
-	if (cub->map)
-		free_tabc(cub->map);
-	return (0);
-}
+// int	quit(t_cub *cub)
+// {
+// 	if (cub->tmp_map)
+// 		free_tabc(cub->tmp_map);
+// 	if (cub->map)
+// 		free_tabc(cub->map);
+// 	return (0);
+// }
 
-int	check_file_name(char *file)
-{
-	int	i;
+// int	check_file_name(char *file)
+// {
+// 	int	i;
 
-	i = ft_strlen(file);
-	while (i > 0 && file[i] != '.')
-		i--;
-	if (!i)
-		return (err_msg("map file is not a .cub\n"));
-	if (ft_strncmp(".cub\0", file + i, 5))
-		return (err_msg("map file is not a .cub\n"));
-	i = open(file, O_RDWR);
-	if (i < 0)
-	{
-		if (errno == EACCES)
-			return (err_msg("permission to map file denied\n"));
-		if (errno == EISDIR)
-			return (err_msg("map file is a directory\n"));
-		return (err_msg("map file not found\n"));
-	}
-	close(i);
-	return (0);
-}
+// 	i = ft_strlen(file);
+// 	while (i > 0 && file[i] != '.')
+// 		i--;
+// 	if (!i)
+// 		return (err_msg("map file is not a .cub\n"));
+// 	if (ft_strncmp(".cub\0", file + i, 5))
+// 		return (err_msg("map file is not a .cub\n"));
+// 	i = open(file, O_RDWR);
+// 	if (i < 0)
+// 	{
+// 		if (errno == EACCES)
+// 			return (err_msg("permission to map file denied\n"));
+// 		if (errno == EISDIR)
+// 			return (err_msg("map file is a directory\n"));
+// 		return (err_msg("map file not found\n"));
+// 	}
+// 	close(i);
+// 	return (0);
+// }
 
 // int	main(int ac, char **av, char **env)
 // {

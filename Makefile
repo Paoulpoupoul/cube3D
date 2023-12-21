@@ -6,13 +6,13 @@
 #    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
-#    Updated: 2023/12/21 13:52:56 by lkoletzk         ###   ########.fr        #
+#    Updated: 2023/12/21 15:17:40 by lkoletzk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-SRC = $(addprefix src/, cub3D.c parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_msg.c)\
+SRC = $(addprefix src/, parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_msg.c)\
 	src/main.c \
 	src/start.c \
 	src/init_struc.c \
@@ -78,4 +78,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+norm :
+	@echo -e '		$(Purple)Norminette cub3D$(Color_Off)\n'
+	@norminette $(SRC) include
+	@echo -en '\n'
+
+.PHONY: all clean fclean re orm
