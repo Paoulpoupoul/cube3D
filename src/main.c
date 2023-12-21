@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:08 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 15:20:44 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:58:01 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	(void)argv;
 	t_map		conf;

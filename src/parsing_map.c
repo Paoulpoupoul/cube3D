@@ -6,23 +6,22 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:53:19 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 13:59:38 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 15:57:02 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	print_map(char **tab)
-{
-	int	j;
-
-	j = 0;
-	while (tab[j])
-	{
-		printf("%s\n", tab[j]);
-		j++;
-	}
-}
+// void	print_map(char **tab)
+// {
+// 	int	j;
+// 	j = 0;
+// 	while (tab[j])
+// 	{
+// 		printf("%s\n", tab[j]);
+// 		j++;
+// 	}
+// }
 
 int	check_char_line(t_cub *cub, char *line, int j)
 {
@@ -141,9 +140,5 @@ int	parsing_map(t_cub *cub, char *line)
 		return (1);
 	if (check_map(cub))
 		return (1);
-
-	print_map(cub->conf.map);
-	printf("x : %d\ny : %d\n", cub->map_s.x, cub->map_s.y);
-	printf("player :x %.0f y %.0f\n", cub->player.pos.x, cub->player.pos.y);
 	return (0);
 }

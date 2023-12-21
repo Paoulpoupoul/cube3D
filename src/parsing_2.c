@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:19:50 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 14:46:14 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 15:56:20 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ int	check_map(t_cub *cub)
 			{
 				if (!i || !j || i == cub->map_s.x - 1 || j == cub->map_s.y - 1)
 					return (err_msg("map not close\n"));
-				if (cub->conf.map[j][i + 1] == '2' || cub->conf.map[j][i - 1] == '2'
-					|| cub->conf.map[j + 1][i] == '2' || cub->conf.map[j - 1][i] == '2')
+				if (cub->conf.map[j][i + 1] == '2'
+					|| cub->conf.map[j][i - 1] == '2'
+					|| cub->conf.map[j + 1][i] == '2'
+					|| cub->conf.map[j - 1][i] == '2')
 					return (err_msg("map not close\n"));
 			}
 		}
