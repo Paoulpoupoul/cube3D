@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:44:33 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 14:55:58 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 15:57:35 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	add_player_cord(t_cub *cub, int x, int y, char c)
 	if (c == 'N')
 	{
 		cub->player.dir.x = 0.0f;
-		cub->player.dir.y = -1.0f;;
+		cub->player.dir.y = -1.0f;
 	}
 	else if (c == 'S')
 	{
 		cub->player.dir.x = 0.0f;
-		cub->player.dir.y = -1.0f;;
+		cub->player.dir.y = -1.0f;
 	}
 	else if (c == 'W')
 	{
@@ -36,7 +36,7 @@ int	add_player_cord(t_cub *cub, int x, int y, char c)
 	else
 	{
 		cub->player.dir.x = 0.0f;
-		cub->player.dir.y = -1.0f;;
+		cub->player.dir.y = -1.0f;
 	}
 	return (0);
 }
