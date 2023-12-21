@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:15:23 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:40:05 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ t_window	init_window(void)
 	t_window	win;
 
 	win.mlx = mlx_init();
+	// if (!win.mlx) -> ERROR + FREE
 	win.win = mlx_new_window(win.mlx, WIN_W, WIN_H, "Cub3D");
+	// if (!win.win) -> ERROR + FREE
 	win.img.img = mlx_new_image(win.mlx, WIN_W, WIN_H);
 	if (win.img.img != NULL)
 		win.img.addr = mlx_get_data_addr(win.img.img, &win.img.bpp,

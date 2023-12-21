@@ -6,7 +6,7 @@
 #    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
-#    Updated: 2023/12/21 11:33:36 by lkoletzk         ###   ########.fr        #
+#    Updated: 2023/12/21 13:52:56 by lkoletzk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC = $(addprefix src/, cub3D.c parsing.c parsing_2.c parsing_map.c parsing_map_
 	src/start.c \
 	src/init_struc.c \
 	src/init.c \
-	src/texturescolors.c \
+	src/textures.c \
+	src/colors.c \
 	src/hooks.c \
 	src/draw.c \
 	src/draw_utils.c \

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:28:56 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:24:58 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_texture	init_texture(void)
 
 	text.path = NULL;
 	text.img = init_img();
-	text.width = 32;
-	text.height = 32;
+	text.width = 128;
+	text.height = 128;
 	text.side = 0;
 	return (text);
 }
@@ -53,19 +53,19 @@ t_img	init_img(void)
 /*Map initialization*/
 t_map	init_map_cfg(void)
 {
-	t_map	map_cfg;
+	t_map	conf;
 
-	map_cfg.map = NULL;
-	map_cfg.no = init_texture();
-	map_cfg.no.side = NO;
-	map_cfg.so = init_texture();
-	map_cfg.so.side = SO;
-	map_cfg.we = init_texture();
-	map_cfg.we.side = WE;
-	map_cfg.ea = init_texture();
-	map_cfg.ea.side = EA;
-	map_cfg.f = init_color();
-	map_cfg.c = init_color();
-	map_cfg.spawn_dir = 0;
-	return (map_cfg);
+	conf.map = NULL;
+	conf.no = init_texture();
+	conf.no.side = NO;
+	conf.so = init_texture();
+	conf.so.side = SO;
+	conf.we = init_texture();
+	conf.we.side = WE;
+	conf.ea = init_texture();
+	conf.ea.side = EA;
+	conf.f = init_color();
+	conf.c = init_color();
+	conf.spawn_dir = 0;
+	return (conf);
 }

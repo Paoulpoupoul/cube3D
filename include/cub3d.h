@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:34:12 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:47:39 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 
 # define FOV 0.9f // Champ de vision/Angle caméra
 
-# define moveSpeed 0.08f
-# define rotSpeed 0.08f
-# define slideSpeed 0.08f
+# define moveSpeed 0.05f
+# define rotSpeed 0.05f
+# define slideSpeed 0.05f
 
 typedef enum e_side
 {
@@ -92,6 +92,9 @@ typedef struct s_texture
 typedef struct s_color
 {
 	char	*raw;
+	int		r;
+	int		g;
+	int		b;
 	int		color;
 }	t_color;
 
@@ -154,7 +157,7 @@ t_map			init_map_cfg(void);
 t_window		init_window(void);
 t_keys			init_keys(void);
 t_game			init_game(t_map *conf, t_player *player, t_window *win, t_keys *keys);
-int				set_colors(t_map *conf, t_game *game);										// pas créée
+void			set_colors(t_map *conf);
 int				set_textures(t_map *conf, t_game *game);
 
 /* ----- Gaming ----- */
