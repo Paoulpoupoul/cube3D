@@ -6,12 +6,11 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:50:41 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 13:55:55 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:53:11 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
 
 int	create_trgb(int t, int r, int g, int b)
 {

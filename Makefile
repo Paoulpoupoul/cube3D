@@ -6,7 +6,7 @@
 #    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
-#    Updated: 2023/12/21 15:17:40 by lkoletzk         ###   ########.fr        #
+#    Updated: 2023/12/21 15:55:04 by lkoletzk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC = $(addprefix src/, parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_
 	src/draw_utils.c \
 	src/event.c \
 	src/exit.c \
-	src/free.c \
 	src/keys.c \
 	src/raycasting.c \
 	src/ray_init.c \

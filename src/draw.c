@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:13:49 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:59:55 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	get_text_x(t_game *game, t_texture text, float dist, int side)
 	int		ret;
 
 	if (side > 1)
-		wall_x = game->player->pos.y + dist * game->ray->rayDir.y;
+		wall_x = game->player->pos.y + dist * game->ray->raydir.y;
 	else
-		wall_x = game->player->pos.x + dist * game->ray->rayDir.x;
+		wall_x = game->player->pos.x + dist * game->ray->raydir.x;
 	wall_x -= floorf((wall_x));
 	ret = (int)(wall_x * text.width);
 	if (side == SO || side == WE)
@@ -44,7 +44,8 @@ static void	wall(t_game *game, t_texture text, float dist, int height)
 	{
 		text_y = (int)text_pos & (text.height - 1);
 		if (game->win->win != NULL)
-			img_pix_put(&game->win->img, game->ray->line, y, get_pix_color(&text.img, text_x, text_y));
+			img_pix_put(&game->win->img, game->ray->line, y,
+				get_pix_color(&text.img, text_x, text_y));
 		text_pos += step;
 		y++;
 	}

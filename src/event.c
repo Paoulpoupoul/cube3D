@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:39:13 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:59:28 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
 static void	walk(t_game *game)
 {
 	int		dir;
-	t_point old;
-	t_point new;
+	t_point	old;
+	t_point	new;
 
 	dir = 1;
 	old.x = game->player->dir.x;
 	old.y = game->player->dir.y;
 	if (game->keys->s)
 		dir = -1;
-	new.x = game->player->pos.x + (dir * old.x * moveSpeed);
-	new.y = game->player->pos.y + (dir * old.y * moveSpeed);
-// Collision management
+	new.x = game->player->pos.x + (dir * old.x * MV_SPEED);
+	new.y = game->player->pos.y + (dir * old.y * MV_SPEED);
 	if (ft_ischarset(game->conf->map[(int)(new.y)][(int)(game->player->pos.x)],
 		COLLISIONS))
 		game->player->pos.y = new.y;
@@ -39,17 +38,16 @@ static void	walk(t_game *game)
 static void	slide(t_game *game)
 {
 	int		dir;
-	t_point old;
-	t_point new;
+	t_point	old;
+	t_point	new;
 
 	dir = 1;
 	if (game->keys->a)
 		dir = -1;
 	old.x = game->player->plane.x;
 	old.y = game->player->plane.y;
-	new.x = game->player->pos.x + (dir * old.x * slideSpeed);
-	new.y = game->player->pos.y + (dir * old.y * slideSpeed);
-// Collision management
+	new.x = game->player->pos.x + (dir * old.x * SL_SPEED);
+	new.y = game->player->pos.y + (dir * old.y * SL_SPEED);
 	if (ft_ischarset(game->conf->map[(int)(new.y)][(int)(game->player->pos.x)],
 		COLLISIONS))
 		game->player->pos.y = new.y;
@@ -71,13 +69,13 @@ static void	rotate(t_game *game)
 	old_dir_x = game->player->dir.x;
 	old_plane_x = game->player->plane.x;
 	game->player->dir.x = old_dir_x
-		* cos(dir * rotSpeed) - game->player->dir.y * sin(dir * rotSpeed);
+		* cos(dir * RT_SPEED) - game->player->dir.y * sin(dir * RT_SPEED);
 	game->player->dir.y = old_dir_x
-		* sin(dir * rotSpeed) + game->player->dir.y * cos(dir * rotSpeed);
+		* sin(dir * RT_SPEED) + game->player->dir.y * cos(dir * RT_SPEED);
 	game->player->plane.x = old_plane_x
-		* cos(dir * rotSpeed) - game->player->plane.y * sin(dir * rotSpeed);
+		* cos(dir * RT_SPEED) - game->player->plane.y * sin(dir * RT_SPEED);
 	game->player->plane.y = old_plane_x
-		* sin(dir * rotSpeed) + game->player->plane.y * cos(dir * rotSpeed);
+		* sin(dir * RT_SPEED) + game->player->plane.y * cos(dir * RT_SPEED);
 }
 
 int	event(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:26 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:55:16 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	key_press_handler(int keysym, t_game *game)
 {
-	// printf("key: %d\n", keysym);
 	if (keysym == XK_w)
 		game->keys->w = 1;
 	if (keysym == XK_a)
@@ -29,8 +28,6 @@ int	key_press_handler(int keysym, t_game *game)
 		game->keys->left = 1;
 	if (keysym == XK_Right)
 		game->keys->right = 1;
-	// if (keysym == XK_Tab)		// pour minimap
-	// 	game->keys->tab = !(game->keys->tab);
 	return (0);
 }
 

@@ -1,6 +1,6 @@
-NO ./textures/BRIQUES.xpm
+NO ./textures/test1.xpm
 SO ./textures/BRIQUES.xpm
-WE ./textures/PIERRES.xpm
+WE ./textures/Bricks1.xpm
 EA ./textures/PIERRES.xpm
 
 F 220,100,0

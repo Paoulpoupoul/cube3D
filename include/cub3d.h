@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 15:18:08 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:02:15 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 
 # define FOV 0.9f // Champ de vision/Angle caméra
 
-# define moveSpeed 0.05f
-# define rotSpeed 0.05f
-# define slideSpeed 0.05f
+# define MV_SPEED 0.05f
+# define RT_SPEED 0.05f
+# define SL_SPEED 0.05f
 
 typedef enum e_side
 {
@@ -120,9 +120,9 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	t_point	rayDir;
-	t_point	sideDist;
-	t_point	deltaDist;
+	t_point	raydir;
+	t_point	sidedist;
+	t_point	deltadist;
 	t_coord	map;
 	t_coord	step;
 	int		line;
@@ -137,7 +137,6 @@ typedef struct s_keys
 	int	right;
 	int	left;
 	int	esc;
-	// int	tab;			// pour minimap
 }	t_keys;
 
 typedef struct s_game
@@ -159,63 +158,63 @@ typedef struct s_cub3d
 
 /* ----- Parsing ----- */
 // parsing.c
-int		parsing(t_cub *cub, char *file);
+int			parsing(t_cub *cub, char *file);
 // parsing_2.c
-int		check_file(char *file);
-int		add_color_to(char *line, int *i, int *color);
-int		check_line(char *line, int i);
-int		check_parsing(t_cub *cub, int i);
-int		check_map(t_cub *cub);
+int			check_file(char *file);
+int			add_color_to(char *line, int *i, int *color);
+int			check_line(char *line, int i);
+int			check_parsing(t_cub *cub, int i);
+int			check_map(t_cub *cub);
 // parsing_map.c
-int		parsing_map(t_cub *cub, char *line);
+int			parsing_map(t_cub *cub, char *line);
 // parsing_map_2.c
-int		line_empty(char *line);
-int		rest_empty(char **map, int j);
-int		add_player_cord(t_cub *cub, int x, int y, char c);
-char	char_to_map(char c);
+int			line_empty(char *line);
+int			rest_empty(char **map, int j);
+int			add_player_cord(t_cub *cub, int x, int y, char c);
+char		char_to_map(char c);
 // err_msg.c
-int		err_msg(char *msg);
-int		errno_msg(char *msg, int err);
+int			err_msg(char *msg);
+int			errno_msg(char *msg, int err);
 
 /* ----- Structure initialization ----- */
-t_texture		init_texture(void);
-t_color			init_color(void);
-t_img			init_img(void);
-void			init_map_cfg(t_map *conf, t_player *player);
-t_window		init_window(void);
-t_keys			init_keys(void);
-t_game			init_game(t_map *conf, t_player *player, t_window *win, t_keys *keys);
-void			set_colors(t_map *conf);
-int				set_textures(t_map *conf, t_game *game);
+// t_texture		init_texture(void);
+// t_color			init_color(void);
+// t_img			init_img(void);
+void		init_map_cfg(t_map *conf, t_player *player);
+t_window	init_window(void);
+t_keys		init_keys(void);
+t_game		init_game(t_map *conf, t_player *player,
+				t_window *win, t_keys *keys);
+void		set_colors(t_map *conf);
+int			set_textures(t_map *conf, t_game *game);
 
 /* ----- Gaming ----- */
-int				cub3d(t_map *conf, t_player *ray);
-void			hooks(t_game *data);
-int				key_press_handler(int keysym, t_game *data);
-int				key_release_handler(int keysym, t_game *data);
+int			cub3d(t_map *conf, t_player *ray);
+void		hooks(t_game *data);
+int			key_press_handler(int keysym, t_game *data);
+int			key_release_handler(int keysym, t_game *data);
 
 /* ----- Raycasting ----- */
-int				raycasting(t_game *game);
-t_ray			init_ray(void);
+int			raycasting(t_game *game);
+t_ray		init_ray(void);
 
 /* ----- Moves ----- */
-int				event(t_game *game);
-// void			walk(t_game *game);
-// void			slide(t_game *game);
-// void			rotate(t_game *game);
+int			event(t_game *game);
+// void		walk(t_game *game);
+// void		slide(t_game *game);
+// void		rotate(t_game *game);
 
 /* ----- Game ----- */
-void			ray_update(t_game *data, int i, t_ray *ray);
-float			f_abs(float f);
+void		ray_update(t_game *data, int i, t_ray *ray);
+float		f_abs(float f);
 
 /* ----- Utils ----- */
-int				c3d_exit(t_game *data);
-void			free_conf(t_map conf);
+int			c3d_exit(t_game *data);
 
-void			draw(t_game *data, float dist, int side);
-int				get_pix_color(t_img *tex, int x, int y);
-void			img_pix_put(t_img *img, int x, int y, int color);
-int				draw_end(int height);
-int				draw_start(int height);
+void		draw(t_game *data, float dist, int side);
+int			get_pix_color(t_img *tex, int x, int y);
+void		img_pix_put(t_img *img, int x, int y, int color);
+int			draw_end(int height);
+int			draw_start(int height);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:35:33 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:02:56 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static int	set_side(t_ray *ray, int dir)
 {
 	if (!dir)
 	{
-		if (ray->rayDir.x > 0)
-			return (EA);
-		return (WE);
+		if (ray->raydir.x > 0)
+			return (WE);
+		return (EA);
 	}
 	else
 	{
-		if (ray->rayDir.y < 0)
-			return (NO);
-		return (SO);
+		if (ray->raydir.y < 0)
+			return (SO);
+		return (NO);
 	}
 }
 
@@ -36,15 +36,15 @@ static int	hit_loop(t_game *game, t_ray *ray)
 	hit = 0;
 	while (!hit)
 	{
-		if (ray->sideDist.x < ray->sideDist.y)
+		if (ray->sidedist.x < ray->sidedist.y)
 		{
-			ray->sideDist.x += ray->deltaDist.x;
+			ray->sidedist.x += ray->deltadist.x;
 			ray->map.x += ray->step.x;
 			ret = set_side(ray, 0);
 		}
 		else
 		{
-			ray->sideDist.y += ray->deltaDist.y;
+			ray->sidedist.y += ray->deltadist.y;
 			ray->map.y += ray->step.y;
 			ret = set_side(ray, 1);
 		}
@@ -56,7 +56,7 @@ static int	hit_loop(t_game *game, t_ray *ray)
 
 int	raycasting(t_game *game)
 {
-	float	perpWallDist;
+	float	perpwalldist;
 	int		side;
 	t_ray	ray;
 	int		i;
@@ -70,14 +70,15 @@ int	raycasting(t_game *game)
 		ray_update(game, i, &ray);
 		side = hit_loop(game, &ray);
 		if (side > 1)
-			perpWallDist = (ray.sideDist.x - ray.deltaDist.x);
+			perpwalldist = (ray.sidedist.x - ray.deltadist.x);
 		else
-			perpWallDist = (ray.sideDist.y - ray.deltaDist.y);
-		draw(game, perpWallDist, side);
+			perpwalldist = (ray.sidedist.y - ray.deltadist.y);
+		draw(game, perpwalldist, side);
 		i++;
 	}
 	game->ray = NULL;
 	if (game->win->win != NULL)
-		mlx_put_image_to_window(game->win->mlx,	game->win->win, game->win->img.img, 0, 0);
+		mlx_put_image_to_window(game->win->mlx,
+			game->win->win, game->win->img.img, 0, 0);
 	return (0);
 }

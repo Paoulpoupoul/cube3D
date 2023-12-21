@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:30:13 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:00:28 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_ray	init_ray(void)
 {
 	t_ray	ray;
 
-	ray.rayDir = empty_point();
-	ray.sideDist = empty_point();
-	ray.deltaDist = empty_point();
+	ray.raydir = empty_point();
+	ray.sidedist = empty_point();
+	ray.deltadist = empty_point();
 	ray.map = empty_coord();
 	ray.step = empty_coord();
 	ray.line = 0;
