@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturescolors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:28:09 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:42:01 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int	set_textures(t_map *cfg, t_game *game)
 {
 // NORTH
-	cfg->no.path = "./textures/BRIQUES.xpm";
 	cfg->no.img.img = mlx_xpm_file_to_image(game->win->mlx, cfg->no.path,
 			&cfg->no.img.width, &cfg->no.img.height);
 	if (cfg->no.img.img != NULL)
@@ -28,7 +27,6 @@ int	set_textures(t_map *cfg, t_game *game)
 		return (1);
 
 // SOUTH
-	cfg->so.path = "./textures/BRIQUES.xpm";
 	cfg->so.img.img = mlx_xpm_file_to_image(game->win->mlx, cfg->so.path,
 			&cfg->so.img.width, &cfg->so.img.height);
 	if (cfg->so.img.img != NULL)
@@ -40,7 +38,6 @@ int	set_textures(t_map *cfg, t_game *game)
 		return (1);
 
 // EAST
-	cfg->ea.path = "./textures/PIERRES.xpm";
 	cfg->ea.img.img = mlx_xpm_file_to_image(game->win->mlx, cfg->ea.path,
 			&cfg->ea.img.width, &cfg->ea.img.height);
 	if (cfg->ea.img.img != NULL)
@@ -52,7 +49,6 @@ int	set_textures(t_map *cfg, t_game *game)
 		return (1);
 
 // WEST
-	cfg->we.path = "./textures/PIERRES.xpm";
 	cfg->we.img.img = mlx_xpm_file_to_image(game->win->mlx, cfg->we.path,
 			&cfg->we.img.width, &cfg->we.img.height);
 	if (cfg->we.img.img != NULL)

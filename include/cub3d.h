@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:34:12 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:50:21 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,16 @@ typedef struct s_texture
 typedef struct s_color
 {
 	char	*raw;
+	int		r;
+	int		g;
+	int		b;
 	int		color;
 }	t_color;
 
 typedef struct s_map_cfg
 {
 	char		**map;
+	char		**tmp_map;
 	t_texture	no;
 	t_texture	so;
 	t_texture	ea;
@@ -145,12 +149,39 @@ typedef struct s_game
 	t_keys		*keys;
 }	t_game;
 
+typedef struct s_cub3d
+{
+	int			fd;
+	t_coord		map_s;
+	t_map		conf;
+	t_player	player;
+}	t_cub;
+
+/* ----- Parsing ----- */
+// parsing.c
+int		parsing(t_cub *cub, char *file);
+// parsing_2.c
+int		check_file(char *file);
+int		add_color_to(char *line, int *i, int *color);
+int		check_line(char *line, int i);
+int		check_parsing(t_cub *cub, int i);
+int		check_map(t_cub *cub);
+// parsing_map.c
+int		parsing_map(t_cub *cub, char *line);
+// parsing_map_2.c
+int		line_empty(char *line);
+int		rest_empty(char **map, int j);
+int		add_player_cord(t_cub *cub, int x, int y, char c);
+char	char_to_map(char c);
+// err_msg.c
+int		err_msg(char *msg);
+int		errno_msg(char *msg, int err);
 
 /* ----- Structure initialization ----- */
 t_texture		init_texture(void);
 t_color			init_color(void);
 t_img			init_img(void);
-t_map			init_map_cfg(void);
+void			init_map_cfg(t_map *conf, t_player *player);
 t_window		init_window(void);
 t_keys			init_keys(void);
 t_game			init_game(t_map *conf, t_player *player, t_window *win, t_keys *keys);

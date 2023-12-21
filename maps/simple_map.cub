@@ -1,7 +1,7 @@
 NO ./textures/BRIQUES.xpm
 SO ./textures/BRIQUES.xpm
-WE ./textures/PIERRE.xpm
-EA ./textures/PIERRE.xpm
+WE ./textures/PIERRES.xpm
+EA ./textures/PIERRES.xpm
 
 F 220,100,0
 C 225,30,0

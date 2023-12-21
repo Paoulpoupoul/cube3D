@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   init_struc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:28:56 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:00 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:49:23 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
 /*Texture initialization*/
-t_texture	init_texture(void)
+/*t_texture	init_texture(void)
 {
 	t_texture	text;
 
@@ -23,20 +23,20 @@ t_texture	init_texture(void)
 	text.height = 32;
 	text.side = 0;
 	return (text);
-}
+}*/
 
 /*Color initialization*/
-t_color	init_color(void)
+/*t_color	init_color(void)
 {
 	t_color	color;
 
 	color.color = 0;
 	color.raw = NULL;
 	return (color);
-}
+}*/
 
 /*Image initialization*/
-t_img	init_img(void)
+/*t_img	init_img(void)
 {
 	t_img	img;
 
@@ -48,24 +48,23 @@ t_img	init_img(void)
 	img.line_len = 0;
 	img.endian = 0;
 	return (img);
-}
+}*/
 
 /*Map initialization*/
-t_map	init_map_cfg(void)
+void	init_map_cfg(t_map *conf, t_player *player)
 {
-	t_map	map_cfg;
-
-	map_cfg.map = NULL;
-	map_cfg.no = init_texture();
-	map_cfg.no.side = NO;
-	map_cfg.so = init_texture();
-	map_cfg.so.side = SO;
-	map_cfg.we = init_texture();
-	map_cfg.we.side = WE;
-	map_cfg.ea = init_texture();
-	map_cfg.ea.side = EA;
-	map_cfg.f = init_color();
-	map_cfg.c = init_color();
-	map_cfg.spawn_dir = 0;
-	return (map_cfg);
+	conf->no.side = NO;
+	conf->no.width = 32;
+	conf->no.height = 32;
+	conf->so.side = SO;
+	conf->so.width = 32;
+	conf->so.height = 32;
+	conf->we.side = WE;
+	conf->we.width = 32;
+	conf->we.height = 32;
+	conf->ea.side = EA;
+	conf->ea.width = 32;
+	conf->ea.height = 32;
+	player->plane.x = FOV;
+	player->plane.y = 0.0f;
 }
