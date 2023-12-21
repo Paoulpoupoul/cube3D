@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:19:50 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:25:16 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 10:43:01 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	check_parsing(t_cub *cub, int i)
 		return (err_msg("missing floor color in map file\n"));
 	// if (!cub->txtr.ea || !cub->txtr.no || !cub->txtr.so || !cub->txtr.we)
 	// 	return (err_msg("missing texture in map file\n"));
-	if (!i && !cub->c_map)
+	if (!i && !cub->tmp_map)
 		return (err_msg("missing map in map file\n"));
 	return (0);
 }

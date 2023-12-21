@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:37 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/20 14:33:42 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 10:49:15 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	quit(t_cub *cub)
 {
-	if (cub->c_map)
-		free_tabc(cub->c_map);
+	if (cub->tmp_map)
+		free_tabc(cub->tmp_map);
 	if (cub->map)
-		free_tab(cub->map, cub->map_s.y);
+		free_tabc(cub->map);
 	return (0);
 }
 

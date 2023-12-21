@@ -6,7 +6,7 @@
 /*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:44:33 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/20 15:40:23 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 10:48:54 by jmorvan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	check_map(t_cub *cub)
 	int	j;
 
 	j = 0;
-	while (cub->map[j] && j < cub->map_s.y)
+	while (cub->map[j])
 	{
 		i = -1;
-		while (++i < cub->map_s.x)
+		while (cub->map[j][++i])
 		{
-			if (!cub->map[j][i])
+			if (cub->map[j][i] == '0')
 			{
 				if (!i || !j || i == cub->map_s.x - 1 || j == cub->map_s.y - 1)
 					return (err_msg("map not close\n"));
-				if (cub->map[j][i + 1] == 2 || cub->map[j][i - 1] == 2
-					|| cub->map[j + 1][i] == 2 || cub->map[j - 1][i] == 2)
+				if (cub->map[j][i + 1] == '2' || cub->map[j][i - 1] == '2'
+					|| cub->map[j + 1][i] == '2' || cub->map[j - 1][i] == '2')
 					return (err_msg("map not close\n"));
 			}
 		}
@@ -48,17 +48,17 @@ int	add_player_cord(t_cub *cub, int x, int y, char c)
 	return (0);
 }
 
-int	char_to_map(char c)
+char	char_to_map(char c)
 {
 	if (c == ' ' || c == '\n')
-		return (2);
+		return ('2');
 	else if (c == '0')
-		return (0);
+		return ('0');
 	else if (c == '1')
-		return (1);
+		return ('1');
 	else if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (0);
-	return (3);
+		return ('0');
+	return ('3');
 }
 
 int	line_empty(char *line)
