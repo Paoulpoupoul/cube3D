@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:08 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/20 17:52:57 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 10:53:21 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 		printf("%s\n", conf.map[i]);	
 
 // On configure notre personnage à la mano ...
+// Direction NO
 	player.pos.x = (float)1 + 0.49f;
 	player.pos.y = (float)1 + 0.49f;
 	player.dir.x = 0.0f;
