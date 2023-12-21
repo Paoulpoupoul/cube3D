@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:15:23 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 15:52:07 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:10:46 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ t_keys	init_keys(void)
 	keys.esc = 0;
 	keys.left = 0;
 	keys.right = 0;
-	// keys.tab = 0;				// pour minimap
 	return (keys);
 }
 

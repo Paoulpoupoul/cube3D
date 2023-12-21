@@ -6,11 +6,11 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:57:37 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 16:07:47 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:10:10 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ../include/cub3d.h"
+#include "../include/cub3d.h"
 
 // valgrind --track-fds=yes --leak-check=full --show-leak-kinds=all ./cub3D map.cub
 

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:11:53 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:02:47 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:10:35 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	cub3d(t_map *conf, t_player *player)
 	if (!set_textures(conf, &game))
 		hooks(&game);
 	else
-		printf("Error\nTextures must be .xpm format.\n");	// printf
+		printf("Error\nTextures must be .xpm format.\n");
 	c3d_exit(&game);
 	mlx_destroy_image(game.win->mlx, game.win->img.img);
 	mlx_destroy_display(game.win->mlx);
