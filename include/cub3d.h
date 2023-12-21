@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:02:15 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:08:39 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sys/types.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 # include <errno.h>
 # include <float.h>

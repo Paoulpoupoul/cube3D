@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   err_msg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:07:25 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/07 14:51:52 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 16:07:23 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../include/cub3d.h"
 
 int	err_msg(char *msg)
 {
