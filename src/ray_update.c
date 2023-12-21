@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:59:26 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:27:43 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:31:45 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,9 @@ static void	set_map(t_player *player, t_ray *ray)
 
 void	ray_update(t_game *game, int i, t_ray *ray)
 {
-	static int n = 0;
-	n++;
 	ray->line = i;
 	set_raydir(game, i, ray);
 	set_map(game->player, ray);
-	if (n >= 20000)
-	{
-		n = 0;
-		printf("dir.x: %f\n", game->player->dir.x);
-		printf("dir.y: %f\n", game->player->dir.y);
-		printf("plane.x: %f\n", game->player->plane.x);
-		printf("plane.y: %f\n", game->player->plane.y);
-	}
 	set_deltadist(ray);
 	set_sidedist(game, ray);
 }

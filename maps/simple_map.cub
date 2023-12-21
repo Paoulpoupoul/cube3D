@@ -1,13 +1,13 @@
-NO ./textures/test1.xpm
-SO ./textures/BRIQUES.xpm
-WE ./textures/Bricks1.xpm
-EA ./textures/PIERRES.xpm
+NO ./textures/Brique-rouge.xpm
+SO ./textures/Pierres-moussues.xpm
+WE ./textures/Pierres.xpm
+EA ./textures/Pierres-claires.xpm
 
 F 220,100,0
 C 225,30,0
 
 111111
-1N0101
+1E0101
 100001
 110001
 111111

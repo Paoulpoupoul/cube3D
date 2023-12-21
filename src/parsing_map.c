@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:53:19 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 15:57:02 by jmorvan          ###   ########.fr       */
+/*   Updated: 2023/12/21 18:03:19 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_char_line(t_cub *cub, char *line, int j)
 		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
 			|| line[i] == 'W')
 		{
-			if (add_player_cord(cub, i, j, line[i]))
+			if (add_player_coord(cub, i, j, line[i]))
 				return (1);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:08:39 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:04:39 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # include <X11/keysym.h>
 # include "../mlx/mlx.h"
 
-# define SPAWN "NSEW"
 # define COLLISIONS "0NSEW"
 
 # define WIN_W 1280
@@ -171,17 +170,19 @@ int			parsing_map(t_cub *cub, char *line);
 // parsing_map_2.c
 int			line_empty(char *line);
 int			rest_empty(char **map, int j);
-int			add_player_cord(t_cub *cub, int x, int y, char c);
+int			add_player_coord(t_cub *cub, int x, int y, char c);
 char		char_to_map(char c);
 // err_msg.c
 int			err_msg(char *msg);
 int			errno_msg(char *msg, int err);
 
 /* ----- Structure initialization ----- */
-// t_texture		init_texture(void);
-// t_color			init_color(void);
-// t_img			init_img(void);
-void		init_map_cfg(t_map *conf, t_player *player);
+// t_texture	init_texture(void);
+// t_color		init_color(void);
+// t_img		init_img(void);
+// t_map		init_map_cfg(void);
+void		init_map_cfg(t_map *conf);
+
 t_window	init_window(void);
 t_keys		init_keys(void);
 t_game		init_game(t_map *conf, t_player *player,

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:35:33 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:02:56 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:36:45 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	set_side(t_ray *ray, int dir)
 	if (!dir)
 	{
 		if (ray->raydir.x > 0)
-			return (WE);
-		return (EA);
+			return (EA);
+		return (WE);
 	}
 	else
 	{
