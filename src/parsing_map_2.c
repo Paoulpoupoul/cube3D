@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:44:33 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 18:05:51 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:37:38 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	add_player_coord(t_cub *cub, int x, int y, char c)
 	}
 	else if (c == 'S')
 	{
-		cub->player.dir.y = -1.0f;
+		cub->player.dir.y = 1.0f;
 		cub->player.plane.x = -FOV;
 	}
 	else if (c == 'W')

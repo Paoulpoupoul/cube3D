@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:26 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 15:55:16 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:57:20 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,16 @@ int	key_release_handler(int keysym, t_game *game)
 	if (keysym == XK_Right)
 		game->keys->right = 0;
 	return (0);
+}
+
+/*Setup hooks*/
+void	hooks(t_game *game)
+{
+	mlx_hook(game->win->win, KeyPress, KeyPressMask, &key_press_handler, game);
+	mlx_hook(game->win->win, KeyRelease, KeyReleaseMask,
+		&key_release_handler, game);
+	mlx_hook(game->win->win, DestroyNotify, StructureNotifyMask,
+		&mlx_loop_end, game->win->mlx);
+	mlx_loop_hook(game->win->mlx, &raycasting, game);
+	mlx_loop(game->win->mlx);
 }

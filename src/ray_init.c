@@ -6,14 +6,13 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:30:13 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 16:00:28 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:57:36 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
 /* Raycasting initialisation */
-
 static t_point	empty_point(void)
 {
 	t_point	point;

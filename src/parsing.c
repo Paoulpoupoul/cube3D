@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:21:19 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 17:37:45 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:18:20 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	add_rgb(char *line, t_color *img)
 	i++;
 	if (add_color_to(line, &i, &img->b))
 		return (1);
-	printf("color : r%d g%d b%d\n", img->r, img->g, img->b);
 	return (check_line(line, i));
 }
 
@@ -47,7 +46,7 @@ int	add_texture(char *line, t_texture *texture)
 
 	i = 0;
 	l = 0;
-	if (texture->img.img)
+	if (texture->img.img || texture->path)
 		return (err_msg("too many identifier in map file\n"));
 	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 		i++;

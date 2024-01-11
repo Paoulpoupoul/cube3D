@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.c                                         :+:      :+:    :+:   */
+/*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:28:09 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 17:33:28 by lkoletzk         ###   ########.fr       */
+/*   Created: 2023/12/21 13:50:41 by lkoletzk          #+#    #+#             */
+/*   Updated: 2024/01/11 11:49:30 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-/*Setting up textures*/
-int	set_img_text(t_texture *dir, t_game *game)
+/*------------------------ Setting up colors -----------------------*/
+static int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
+}
+
+void	set_colors(t_map *cfg)
+{
+	cfg->f.color = create_trgb(0, cfg->f.r, cfg->f.g, cfg->f.b);
+	cfg->c.color = create_trgb(0, cfg->c.r, cfg->c.g, cfg->c.b);
+}
+
+/*----------------------- Setting up textures ----------------------*/
+static int	set_img_text(t_texture *dir, t_game *game)
 {
 	dir->img.img = mlx_xpm_file_to_image(game->win->mlx, dir->path,
 			&dir->img.width, &dir->img.height);

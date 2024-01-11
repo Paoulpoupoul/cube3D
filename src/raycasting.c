@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:35:33 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 17:36:45 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:28:16 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,11 @@ int	raycasting(t_game *game)
 		mlx_put_image_to_window(game->win->mlx,
 			game->win->win, game->win->img.img, 0, 0);
 	return (0);
+}
+
+float	f_abs(float f)
+{
+	if (f < 0)
+		f *= -1;
+	return (f);
 }

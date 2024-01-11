@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:19:50 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 15:56:20 by jmorvan          ###   ########.fr       */
+/*   Updated: 2024/01/11 12:33:42 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	check_file(char *file)
 {
 	int	i;
 
-	printf("texture file name : %s\n", file);
 	i = ft_strlen(file);
 	while (i > 0 && file[i] != '.')
 		i--;

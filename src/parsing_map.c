@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:53:19 by jmorvan           #+#    #+#             */
-/*   Updated: 2023/12/21 18:03:19 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:12:26 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,10 @@ int	create_map(t_cub *cub)
 int	parsing_map(t_cub *cub, char *line)
 {
 	if (check_parsing(cub, 1))
+	{
+		ft_free(line);
 		return (1);
+	}
 	while (line)
 	{
 		if (add_line_to_map(cub, line))

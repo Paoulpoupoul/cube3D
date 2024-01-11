@@ -1,7 +1,7 @@
-NO ./textures/BRIQUES.xpm
-SO ./textures/BRIQUES.xpm
-WE ./textures/PIERRES.xpm
-EA ./textures/PIERRES.xpm
+NO ./textures/Brique-rouge.xpm
+SO ./textures/Pierres-moussues.xpm
+WE ./textures/Pierres.xpm
+EA ./textures/Pierres-claires.xpm
 
 F 220,100,0
 C 225,30,0

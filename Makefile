@@ -6,7 +6,7 @@
 #    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
-#    Updated: 2023/12/21 15:55:04 by lkoletzk         ###   ########.fr        #
+#    Updated: 2024/01/11 16:30:10 by lkoletzk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,8 @@ NAME = cub3D
 SRC = $(addprefix src/, parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_msg.c)\
 	src/main.c \
 	src/start.c \
-	src/init_struc.c \
 	src/init.c \
-	src/textures.c \
-	src/colors.c \
-	src/hooks.c \
+	src/settings.c \
 	src/draw.c \
 	src/draw_utils.c \
 	src/event.c \
@@ -27,8 +24,7 @@ SRC = $(addprefix src/, parsing.c parsing_2.c parsing_map.c parsing_map_2.c err_
 	src/keys.c \
 	src/raycasting.c \
 	src/ray_init.c \
-	src/ray_update.c \
-	src/ray_utils.c
+	src/ray_update.c
 
 OBJ			= $(SRC:.c=.o)
 

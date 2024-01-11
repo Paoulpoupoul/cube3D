@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:12:50 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 18:04:39 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:30:14 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef enum e_side
 	SO,
 	EA,
 	WE,
-	MAX
 }	t_side;
 
 typedef struct s_point
@@ -177,12 +176,7 @@ int			err_msg(char *msg);
 int			errno_msg(char *msg, int err);
 
 /* ----- Structure initialization ----- */
-// t_texture	init_texture(void);
-// t_color		init_color(void);
-// t_img		init_img(void);
-// t_map		init_map_cfg(void);
 void		init_map_cfg(t_map *conf);
-
 t_window	init_window(void);
 t_keys		init_keys(void);
 t_game		init_game(t_map *conf, t_player *player,
@@ -192,31 +186,25 @@ int			set_textures(t_map *conf, t_game *game);
 
 /* ----- Gaming ----- */
 int			cub3d(t_map *conf, t_player *ray);
-void		hooks(t_game *data);
-int			key_press_handler(int keysym, t_game *data);
-int			key_release_handler(int keysym, t_game *data);
 
 /* ----- Raycasting ----- */
 int			raycasting(t_game *game);
 t_ray		init_ray(void);
-
-/* ----- Moves ----- */
-int			event(t_game *game);
-// void		walk(t_game *game);
-// void		slide(t_game *game);
-// void		rotate(t_game *game);
-
-/* ----- Game ----- */
 void		ray_update(t_game *data, int i, t_ray *ray);
 float		f_abs(float f);
 
-/* ----- Utils ----- */
-int			c3d_exit(t_game *data);
+/* ----- Moves ----- */
+int			event(t_game *game);
+void		hooks(t_game *data);
+int			key_press_handler(int keysym, t_game *data);
+int			key_release_handler(int keysym, t_game *data);
 
+/* ----- Utils ----- */
 void		draw(t_game *data, float dist, int side);
 int			get_pix_color(t_img *tex, int x, int y);
 void		img_pix_put(t_img *img, int x, int y, int color);
-int			draw_end(int height);
 int			draw_start(int height);
+int			draw_end(int height);
 
+int			c3d_exit(t_game *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:16:29 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 11:29:26 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:52:40 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,6 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 	}
 }
 
-int	draw_end(int height)
-{
-	int	i;
-
-	i = (height >> 1) + (WIN_H >> 1);
-	if (i >= WIN_H)
-		i = WIN_H;
-	return (i);
-}
-
 int	draw_start(int height)
 {
 	int	i;
@@ -54,5 +44,15 @@ int	draw_start(int height)
 	i = (-height >> 1) + (WIN_H >> 1);
 	if (i < 0)
 		i = 0;
+	return (i);
+}
+
+int	draw_end(int height)
+{
+	int	i;
+
+	i = (height >> 1) + (WIN_H >> 1);
+	if (i >= WIN_H)
+		i = WIN_H;
 	return (i);
 }
