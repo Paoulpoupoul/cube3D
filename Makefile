@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+         #
+#    By: jmorvan <jmorvan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 14:48:58 by lkoletzk          #+#    #+#              #
-#    Updated: 2024/01/11 16:30:10 by lkoletzk         ###   ########.fr        #
+#    Updated: 2024/01/12 11:02:01 by jmorvan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ CLIB_CF		= -lft -lm -lbsd -lmlx -lXext -lX11
 
 all : $(NAME)
 
-$(NAME): $(OBJ) $(LFT_PATH)$(LIBFT) $(MLX_PATH)$(MLX)
+$(NAME): $(MLX_PATH) $(MLX_PATH)$(MLX) $(OBJ) $(LFT_PATH)$(LIBFT)
 	@ echo "\033[97;0m🚧 cub3D in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) $(LIBFT_CF) $(MLX_CF) $(CLIB_CF) -o $(NAME)
 	@ echo "\033[32;1mCUB3D READY ✅\033[0m\n"
@@ -52,6 +52,9 @@ $(LFT_PATH)$(LIBFT):
 	@ echo "\n\033[97;0m🚧 creating libft 🚧\033[0m\n"
 	@ make --no-print-directory -C $(LFT_PATH)
 	@ echo "\033[32;1mLIBFT READY ✅\033[0m\n"
+
+$(MLX_PATH):
+	@ git clone https://github.com/42Paris/minilibx-linux.git mlx
 
 $(MLX_PATH)$(MLX):
 	@ echo "\n\033[97;0m🚧 creating MLX 🚧\033[0m\n"
@@ -75,7 +78,7 @@ re: fclean all
 
 norm :
 	@echo -e '		$(Purple)Norminette cub3D$(Color_Off)\n'
-	@norminette $(SRC) include
+	@norminette $(SRC) include libft
 	@echo -en '\n'
 
 .PHONY: all clean fclean re orm
