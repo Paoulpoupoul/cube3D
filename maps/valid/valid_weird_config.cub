@@ -6,9 +6,9 @@ SO    ./textures/Pierres-moussues.xpm
 
 
 
-            WE ./textures/Pierres.xpm
+            WE ./textures/Night.xp
 
-EA ./textures/Pierres-claires.xpm
+EA ./textures/Sky.xpm
 
 F     220     ,     100  ,          0
 

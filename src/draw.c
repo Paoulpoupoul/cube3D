@@ -6,7 +6,7 @@
 /*   By: lkoletzk <lkoletzk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:13:49 by lkoletzk          #+#    #+#             */
-/*   Updated: 2023/12/21 15:59:55 by lkoletzk         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:42:22 by lkoletzk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	get_text_x(t_game *game, t_texture text, float dist, int side)
 		wall_x = game->player->pos.x + dist * game->ray->raydir.x;
 	wall_x -= floorf((wall_x));
 	ret = (int)(wall_x * text.width);
-	if (side == SO || side == WE)
+	if (side == NO || side == WE)
 		ret = text.width - ret - 1;
 	return (ret);
 }

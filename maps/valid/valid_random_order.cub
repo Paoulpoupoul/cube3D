@@ -1,7 +1,7 @@
 SO ./textures/Pierres-moussues.xpm
 
 
-WE ./textures/Pierres.xpm
+WE ./textures/Night.xpm
 
 
 F 220,100,0
@@ -11,7 +11,7 @@ C 225,30,0
 
 NO ./textures/Brique-rouge.xpm
 
-EA ./textures/Pierres-claires.xpm
+EA ./textures/Sky.xpm
 
 111111
 1E0101

@@ -1,7 +1,7 @@
 NO 
-SO ./textures/invalid.xpm
-WE ./textures/Pierres.xpm
-EA ./textures/Pierres-claires.xpm
+SO ./textures/Pierres-moussues.xpm
+WE ./textures/Night.xpm
+EA ./textures/Sky.xpm
 
 F 220,100,0
 C 225,30,0

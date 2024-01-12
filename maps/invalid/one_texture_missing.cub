@@ -1,6 +1,6 @@
 NO ./textures/Brique-rouge.xpm
 SO ./textures/Pierres-moussues.xpm
-WE ./textures/Pierres.xpm
+WE ./textures/Night.xpm
 
 F 220,100,0
 C 225,30,0
