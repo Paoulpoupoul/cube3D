@@ -1,12 +1,11 @@
-NO
-SO ./textures/Pierres-moussues.xpm
+NO 
+SO ./textures/invalid.xpm
 WE ./textures/Pierres.xpm
 EA ./textures/Pierres-claires.xpm
+
 F 220,100,0
 C 225,30,0
 
- 1111 
-1E0101
-100001
-110001
- 1111
+1111
+1N01
+1111

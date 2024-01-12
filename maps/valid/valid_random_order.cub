@@ -1,13 +1,20 @@
-NO ./textures/Brique-rouge.xpm
 SO ./textures/Pierres-moussues.xpm
-WE ./textures/Pierres.xpm
-EA ./textures/Pierres-claires.xpm
-F 220,111,119
-C 225,111,999999999999999999999999999999
 
- 1111 
+
+WE ./textures/Pierres.xpm
+
+
+F 220,100,0
+
+
+C 225,30,0
+
+NO ./textures/Brique-rouge.xpm
+
+EA ./textures/Pierres-claires.xpm
+
+111111
 1E0101
 100001
 110001
- 1111
-
+111111

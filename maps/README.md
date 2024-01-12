@@ -24,7 +24,6 @@ NO												// Aucune texture (sans espace)
 \0												// Aucune texture (sans direction)
 Texture après la map
 Textures en double
-	--> Se lance en sauvegardant la deuxieme texture
 
 
 COULEUR:
